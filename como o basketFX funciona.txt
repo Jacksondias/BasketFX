@@ -1,0 +1,71 @@
+O novo robô de negociação BasketFX  foi projetado para realizar o sonho de todo trader: uma estratégia que, por meio de cálculos matemáticos inteligentes, gera lucro independentemente da direção e da intensidade dos movimentos do mercado.
+
+Funcionalidades do BasketFX Advisor
+Plataforma: Metatrader 4
+
+Versão do Advisor: 1.51
+
+Pares de moedas: EUR/USD, GBP/USD, EUR/JPY, EUR/GBP, USD/CAD, AUD/USD, NZD/USD, USD/JPY, AUD/NZD, USDCHF, EURCHF, EURCAD, GBPCHF, GBPJPY, CHFJPY, AUDJPY, CADJPY, NZDJPY
+
+Período: H4
+
+Horário de funcionamento: 24 horas por dia
+
+Data Center Recomendado: Forex4you (contas Cent-NDD)
+
+Estratégia de consultoria
+Vamos começar com uma descrição da estratégia do Expert Advisor BasketFX Forex. Trata-se simplesmente de uma grade de ordens alinhadas a uma forte tendência, protegendo posições em caso de reversão e fechando a cesta de ordens quando um lucro combinado de N pontos é atingido em diversos pares de moedas. Não é tão assustador quanto parece se você examinar os elementos do sistema passo a passo.
+
+O que é um Expert Advisor de grade? É um robô que abre ordens a cada N pontos de movimento de preço. N é chamado de passo da grade. Digamos que abrimos uma ordem de compra a 1,20000 e o passo da grade é de 50 pontos. Dependendo da estratégia, abriremos a próxima ordem a 1,19500 ou 1,2050. Em ambos os casos, a ordem será aberta 50 pontos depois da ordem anterior. A próxima ordem será aberta outros 50 pontos depois, e assim por diante. Acho que você entendeu a ideia geral.
+
+A estratégia de hedge em grade significa que abrimos ordens de compra e venda, dependendo da direção para onde o preço se move, após a instalação do sistema de negociação.
+
+Existem muitas variações na aplicação de ordens em grade. Por exemplo, você pode diluir uma posição abrindo novas ordens na mesma direção quando uma negociação entra em prejuízo. Ou, inversamente, você pode aumentar as posições quando o preço se move na direção da sua primeira negociação. A BasketFX usa a última opção.
+
+Com grids, claro, não é tão simples assim, senão você poderia facilmente "recortar cupons" e não pensar em mais nada. Existem grids que funcionam bem em mercados com tendências, e existem aqueles mais adequados para um mercado plano, com orientação horizontal.
+
+O BasketFX funciona melhor durante tendências fortes, mas também apresenta bom desempenho quando não há uma direção clara de preço. Tudo depende da amplitude do movimento lateral. E como utiliza hedge, o EA simplesmente não gera lucros durante uma tendência lateral, deixando as operações em aberto. Então, quando a tendência se intensifica novamente, o robô fecha todas as ordens, realizando o lucro. As ordens podem permanecer em aberto por até vários meses — ISSO É NORMAL. A boa notícia é que não nos importamos com a direção da tendência. Apostamos em ambas as direções possíveis e aumentamos as posições de acordo com o movimento mais forte.
+
+Vamos analisar como o BasketFX funciona. Ao ser iniciado, o EA simplesmente armazena o nível de preço em que foi lançado. Assim que o preço se move pelo "passo" especificado nos parâmetros da grade, o robô abre uma ordem na direção desse rompimento inicial. Se o preço continuar se movendo nessa direção, o EA abrirá novas ordens a cada "passo". Se o preço reverter e se mover contra nós, após romper o nível inicial (mais ou menos o "passo"), o EA abrirá uma ordem na direção oposta. Dessa forma, fazemos um hedge, limitando as perdas e impedindo que elas aumentem. A partir daí, o BasketFX abrirá novas ordens apenas de acordo com a tendência predominante.
+
+Agora, vamos abordar os elementos adicionais que tornam essa estratégia simples, porém sofisticada e bem pensada. Primeiro, o "passo" é baseado na volatilidade do mercado — quanto maior a volatilidade, maior o "passo". E vice-versa para baixa volatilidade.
+
+Mas a característica mais importante do BasketFX é o suporte a múltiplas moedas e a estratégia de saída associada. O EA negocia vários pares de moedas simultaneamente (3 ou 7). Cada par utiliza a estratégia de hedge descrita acima, mas todos os gráficos estão interligados e, quando o lucro total de TODAS as posições em todos os pares interligados atinge N, todas as ordens nesses pares são fechadas. Realizamos o lucro (embora algumas ordens naturalmente resultem em prejuízo, o resultado geral será positivo) e o EA inicia um novo ciclo da sua estratégia.
+
+A chave para o sucesso está em selecionar os conjuntos certos de pares relacionados para esse sistema de negociação.
+
+O primeiro grupo de pares é chamado de "cestas". Negociamos sete pares simultaneamente, e eles são unidos por uma moeda presente em todos os sete instrumentos. Temos duas cestas: uma inclui pares em USD e a outra inclui pares em JPY.
+
+A "cesta de USD" consiste em sete pares de negociação que incluem o USD: AUDUSD, USDCAD, USDCHF, EURUSD, GBPUSD, USDJPY e NZDUSD.
+
+A cesta de moedas JPY é composta por sete instrumentos denominados em ienes: AUDJPY, CADJPY, CHFJPY, EURJPY, GBPJPY, USDJPY e NZDJPY.
+
+O segundo grupo de correlações é o "anel". Um "anel" consiste em três possíveis interseções entre três moedas. Temos um total de seis "anéis" (veja a figura abaixo). Por exemplo, um deles é EUR/USD/CHF. Todas as combinações possíveis entre essas moedas são EURUSD, EURCHF e USDCHF. O "anel" é uma espécie de conjunto equilibrado de indicadores. Se um ou dois pares se movem acentuadamente para cima, o terceiro se moverá acentuadamente para baixo. E vice-versa. Ou um sobe, o outro desce, enquanto o terceiro permanece estável. Em qualquer caso, sempre há um equilíbrio.
+
+Backtests
+Devido à estratégia de múltiplas moedas do consultor descrita acima, não é possível realizar backtests.
+
+Gestão financeira recomendada
+Como o robô de negociação não possui mecanismos de stop-loss, ele se enquadra na categoria de robôs "potencialmente perigosos". Em caso de circunstâncias desfavoráveis, especialmente com um tamanho de lote configurado incorretamente, ele pode levar à perda de uma grande parte do seu depósito. Recomendo fortemente que você leia as 9 regras para trabalhar com robôs de negociação perigosos — isso o ajudará a evitar inúmeros erros que podem resultar em perda de dinheiro em uma conta real.
+
+Ao trabalhar com o BasketFX, é crucial seguir a gestão de capital recomendada. Especificamente, um lote de 0,01 para cada 1.000 unidades da moeda da conta para cada anel/cesta. Isso significa que, se você quiser usar todos os oito EAs (duas cestas e seis anéis) em uma única conta com 0,01 lote para cada um, seu depósito deve ser de pelo menos 8.000 unidades (US$ 80 em uma conta Cent-NDD na Forex4you ) para que o BasketFX funcione corretamente. Para três EAs (por exemplo, duas cestas e um anel) com 0,01 lote, você precisará de pelo menos 3.000 unidades da moeda do depósito. Claro, ninguém o obriga a arriscar milhares de dólares, então é melhor escolher uma conta Cent para este robô , e uma conta Cent-NDD na Forex4You é a melhor opção.
+
+Para melhor ilustrar os benefícios deste tipo de conta, veja a tabela abaixo, que mostra o depósito mínimo para negociar com todos os 8 consultores para diferentes tipos de conta:
+
+Instalação e utilização
+Se você é novo no mercado Forex com robôs de negociação , certifique-se de ler as perguntas frequentes sobre como instalar e operar com robôs .
+
+Temos, portanto, 8 consultores disponíveis: 2 cestas e 6 anéis. Para evitar confusão, aqui estão as instruções sobre qual consultor usar em cada par:
+
+BasketFX_Basket_JPY : AUDJPY, CADJPY, CHFJPY, EURJPY, GBPJPY, NZDJPY, USDJPY
+BasketFX_Basket_USD : AUDUSD, EURUSD, GBPUSD, NZDUSD, USDCAD, USDCHF, USDJPY
+BasketFX_Ring_AUD-NZD-USD : AUDNZD, AUDUSD, NZDUSD
+BasketFX_Ring_CAD-EUR-USD : EURCAD, EURUSD, USDCAD
+BasketFX_Ring_CHF-EUR-USD : EURCHF, EURUSD, USDCHF
+BasketFX_Ring_CHF-GBP-JPY : CHFJPY, GBPCHF, GBPJPY
+BasketFX_Ring_EUR-GBP-USD : EURGBP, EURUSD, GBPUSD
+BasketFX_Ring_EUR-JPY-USD : EURJPY, EURUSD, USDJPY
+No total, ao utilizar todos os 8 consultores, você obterá 32 gráficos.
+
+Para que o Expert Advisor funcione corretamente, o terminal de negociação deve estar em execução desde a abertura do mercado no domingo à noite até o seu fechamento na sexta-feira à noite. Se você não puder manter seu computador ligado 24 horas por dia, 5 dias por semana, recomendo o uso de  um servidor VPS .
+
