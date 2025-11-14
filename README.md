@@ -6,13 +6,17 @@ This project aims to unify 9 separate MetaTrader 4 Expert Advisor (EA) MQ4 files
 ## 📋 Current Status
 ⚠️ **AWAITING SOURCE FILES** - Please upload the 9 MQ4 files and documentation to continue.
 
+### 👉 **[START HERE: Quick Start Guide](QUICK_START.md)** 👈
+
 See [FILE_UPLOAD_GUIDE.md](FILE_UPLOAD_GUIDE.md) for detailed instructions on what files to upload and how.
 
 ## 📚 Documentation
 
-- **[INSTRUCTIONS.md](INSTRUCTIONS.md)** - Overview of the project and what's needed
+- **[QUICK_START.md](QUICK_START.md)** - 🚀 **START HERE** - Quick guide to get started
 - **[FILE_UPLOAD_GUIDE.md](FILE_UPLOAD_GUIDE.md)** - How to upload your EA files
+- **[INSTRUCTIONS.md](INSTRUCTIONS.md)** - Overview of the project and what's needed
 - **[INTEGRATION_GUIDE.md](INTEGRATION_GUIDE.md)** - Technical guide for EA integration process
+- **[USER_GUIDE.md](USER_GUIDE.md)** - Complete guide for using the unified EA
 - **[UnifiedBasketFX_TEMPLATE.mq4](UnifiedBasketFX_TEMPLATE.mq4)** - Template showing the structure of the unified EA
 
 ## 🚀 Features (Planned)
