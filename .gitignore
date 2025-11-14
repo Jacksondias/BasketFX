@@ -1,0 +1,35 @@
+# MetaTrader compiled files
+*.ex4
+*.ex5
+
+# MetaTrader log files
+*.log
+
+# Temporary files
+*.tmp
+*~
+.DS_Store
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Backup files
+*.bak
+*_backup.*
+
+# Test files (unless specifically needed)
+/test/
+/tests/temp/
+
+# Windows thumbnail cache
+Thumbs.db
+
+# Build artifacts
+/build/
+/dist/
+
+# MetaTrader SET files (optional - uncomment if you don't want to track them)
+# *.set
